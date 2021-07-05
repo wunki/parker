@@ -18,6 +18,10 @@ Ability to handle load, where I demonstrate how to test performance for your app
 
 Maintaibility falls under operability, simplicity and evolvability. To make this work we will setup Docker container, deploy the application under fly.io and monitor it through Prometheus and Grafana.
 
+### Rustfmt configuration
+
+We added a rustfmt configuration to make sure that code is consistent across developers. In the future we will also format imports and comments, but that's only available on Nightly right now.
+
 ## Software
 
 We will be setting up Rocket web application.
