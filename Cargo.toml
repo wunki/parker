@@ -11,6 +11,20 @@ path = "src/main.rs"
 name = "parker"
 
 [dependencies]
+config = "0.11.0"
 rocket = { version = "0.5.0-rc.1", features = ["json"] }
 serde = { version = "1.0", features = ["derive"] }
+
+[dependencies.sqlx]
+version = "0.5"
+default-features = false
+features = [
+  "runtime-tokio-rustls",
+  "postgres",
+  "uuid",
+  "chrono",
+  "macros",
+  "offline",
+  "migrate"
+]
 

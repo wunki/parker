@@ -2,13 +2,13 @@ use rocket::serde::json::Json;
 
 #[derive(serde::Serialize)]
 pub struct HealthCheckResponse {
-    pub status: HealthCheckStatus 
+    pub status: HealthCheckStatus,
 }
 
 #[derive(serde::Serialize)]
 #[serde(rename_all = "camelCase")]
 pub enum HealthCheckStatus {
-    Pass
+    Pass,
 }
 
 /// This is where we will indicate if our service
@@ -16,6 +16,7 @@ pub enum HealthCheckStatus {
 /// like the database.
 #[get("/health")]
 pub fn get_health_check() -> Json<HealthCheckResponse> {
-    Json(HealthCheckResponse { status: HealthCheckStatus::Pass })
+    Json(HealthCheckResponse {
+        status: HealthCheckStatus::Pass,
+    })
 }
-
