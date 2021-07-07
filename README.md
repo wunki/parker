@@ -32,3 +32,14 @@ We added a rustfmt configuration to make sure that code is consistent across dev
 [Rocket]: https://rocket.rs
 [SQLx]: https://github.com/launchbadge/sqlx
 
+### SQLx
+
+We use SQLx for migrations and for running queries against our database. To configure your PostgreSQL instance -- running on Docker -- you have to install [direnv] and configure it by copying `direnv.example` to `.direnv`.
+
+Then we do the following steps to get the database ready:
+
+1. Start up the database with `make postgres`
+2. Make sure the database exists with `sqlx create`
+3. Run all the migrations with `sqlx migrate run`
+
+[direnv]: https://github.com/direnv/direnv
