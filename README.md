@@ -24,5 +24,11 @@ We added a rustfmt configuration to make sure that code is consistent across dev
 
 ## Software
 
-We will be setting up Rocket web application.
+| Name     | Use                                             |
+|----------|-------------------------------------------------|
+| [Rocket] | Easy to use and fast web framework              |
+| [SQLx]   | Write plain SQL, but with compile-time checking |
+
+[Rocket]: https://rocket.rs
+[SQLx]: https://github.com/launchbadge/sqlx
 
