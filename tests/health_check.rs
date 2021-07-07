@@ -2,13 +2,6 @@ use rocket::http::{ContentType, Status};
 use rocket::local::blocking::Client;
 
 #[test]
-fn index_returns_200_ok() {
-    let client = Client::tracked(parker::rocket()).expect("valid rocket instance");
-    let response = client.get("/").dispatch();
-    assert_eq!(response.status(), Status::Ok);
-}
-
-#[test]
 fn health_returns_200_ok() {
     let client = Client::tracked(parker::rocket()).expect("valid rocket instance");
     let response = client.get("/health").dispatch();
