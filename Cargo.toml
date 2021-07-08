@@ -20,7 +20,7 @@ config = "0.11.0"
 version = "0.5"
 default-features = false
 features = [
-  "runtime-tokio-rustls",
+  "runtime-async-std-rustls",
   "postgres",
   "uuid",
   "chrono",

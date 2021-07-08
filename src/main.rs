@@ -6,7 +6,9 @@ async fn main() -> tide::Result<()> {
 
     let settings = Settings::new()?;
 
-    let app = parker::app();
-    app.listen(format!("127.0.0.1:{}", settings.port)).await?;
+    let app = parker::app(&settings);
+    app.await
+        .listen(format!("127.0.0.1:{}", settings.port))
+        .await?;
     Ok(())
 }
