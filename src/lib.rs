@@ -1,15 +1,15 @@
-#[macro_use]
-extern crate rocket;
+use tide::Server;
 
 pub mod routes;
 pub mod settings;
 
-use crate::routes::{get_health_check, get_welcome};
+use crate::routes::{handle_health, handle_welcome};
 use crate::settings::Settings;
 
-/// Generates the rocket server and launches it when needed.
-#[launch]
-pub fn rocket() -> _ {
-    let settings = Settings::new();
-    rocket::build().mount("/", routes![get_welcome, get_health_check])
+pub fn app() -> Server<()> {
+    let _settings = Settings::new();
+    let mut app = tide::new();
+    app.at("/").get(handle_welcome);
+    app.at("/health").get(handle_health);
+    app
 }

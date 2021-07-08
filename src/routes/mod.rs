@@ -1,5 +1,5 @@
-mod health_check;
+mod health;
 mod welcome;
 
-pub use health_check::*;
+pub use health::*;
 pub use welcome::*;

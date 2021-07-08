@@ -1,7 +1,9 @@
-#[macro_use]
-extern crate rocket;
+#[async_std::main]
 
-#[launch]
-fn rocket() -> _ {
-    parker::rocket()
+async fn main() -> tide::Result<()> {
+    tide::log::start();
+
+    let app = parker::app();
+    app.listen("127.0.0.1:4000").await?;
+    Ok(())
 }

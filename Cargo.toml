@@ -11,9 +11,10 @@ path = "src/main.rs"
 name = "parker"
 
 [dependencies]
-config = "0.11.0"
-rocket = { version = "0.5.0-rc.1", features = ["json"] }
+tide = "0.16.0"
 serde = { version = "1.0", features = ["derive"] }
+async-std = { version = "1.8.0", features = ["attributes"] }
+config = "0.11.0"
 
 [dependencies.sqlx]
 version = "0.5"
@@ -27,4 +28,7 @@ features = [
   "offline",
   "migrate"
 ]
+
+[dev-dependencies]
+tide-testing = "0.1.3"
 

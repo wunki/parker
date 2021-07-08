@@ -43,3 +43,14 @@ Then we do the following steps to get the database ready:
 3. Run all the migrations with `sqlx migrate run`
 
 [direnv]: https://github.com/direnv/direnv
+
+## Credits
+
+I followed along the excellent [Zero To Production In Rust] book and made adaptations where I saw fit. Here's where I deviate from the book:
+
+* More reliance on [Makefile] instead of scripts.
+* Use the [tide] web framework instead of Actix web. I found the API to be cleaner.
+
+[Zero To Production In Rust]: https://www.zero2prod.com/index.html?country=Netherlands&discount_code=VAT20
+[Makefile]: ./Makefile
+[tide]: https://github.com/http-rs/tide
