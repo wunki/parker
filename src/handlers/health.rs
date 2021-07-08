@@ -1,5 +1,7 @@
 use tide::{Body, Request, Response, StatusCode};
 
+use crate::State;
+
 #[derive(serde::Serialize)]
 pub struct HealthCheckResponse {
     pub status: HealthCheckStatus,
@@ -11,7 +13,7 @@ pub enum HealthCheckStatus {
     Pass,
 }
 
-pub async fn handle_health(_req: Request<()>) -> tide::Result {
+pub async fn handle_health(_req: Request<State>) -> tide::Result {
     let check = HealthCheckResponse {
         status: HealthCheckStatus::Pass,
     };
