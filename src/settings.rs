@@ -2,6 +2,7 @@ use config::{Config, ConfigError, Environment};
 
 #[derive(serde::Deserialize, Debug)]
 pub struct Settings {
+    pub port: u16,
     pub database_url: String,
 }
 
