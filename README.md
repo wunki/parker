@@ -1,22 +1,24 @@
 # Parker
 
-Fastest way to get started with Rust and Rocket, where we have looked at the three criteria for getting something to production.
+Fastest way to get started with Rust and Tide and get the application to production.
 
 ## Goals
 
 ## Reliability
 
-Meaning that it works correctly, even when things go wrong. It's rust and its safety guarantees and error handling which is going to tick this box.
+Meaning that it works correctly, even when things go wrong. It's Rust and its safety guarantees and error handling which is going to tick this box.
 
 We will also setup unit tests and integrations tests and make sure that they run in a CI/CD pipeline.
 
 ## Scalability
 
-Ability to handle load, where I demonstrate how to test performance for your application.
+Ability to handle load, where there are scripts available for load testing the application.
 
 ## Maintainability
 
 Maintaibility falls under operability, simplicity and evolvability. To make this work we will setup Docker container, deploy the application under fly.io and monitor it through Prometheus and Grafana.
+
+We also manage the application through the [Makefile].
 
 ### Rustfmt configuration
 
@@ -26,10 +28,10 @@ We added a rustfmt configuration to make sure that code is consistent across dev
 
 | Name     | Use                                             |
 |----------|-------------------------------------------------|
-| [Rocket] | Easy to use and fast web framework              |
+| [Tide] | Easy to use and fast web framework              |
 | [SQLx]   | Write plain SQL, but with compile-time checking |
 
-[Rocket]: https://rocket.rs
+[Tide]: https://github.com/http-rs/tide
 [SQLx]: https://github.com/launchbadge/sqlx
 
 ### SQLx

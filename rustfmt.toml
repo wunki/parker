@@ -1,10 +1,10 @@
+version = "Two"
+reorder_imports = true
+reorder_modules = true
+max_width = 100
+wrap_comments = true
+combine_control_expr = true
+report_todo = "Always"
 use_field_init_shorthand = true
 newline_style = "Unix"
-
-# The following lines may be uncommented on nightly Rust.
-# Once these features have stabilized, they should be added to the always-enabled options above.
-# unstable_features = true
-# imports_granularity = "Crate"
-# wrap_comments = true
-# comment_width = 100
-# normalize_comments = true
+remove_nested_parens = true

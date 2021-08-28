@@ -14,10 +14,6 @@ pub enum HealthCheckStatus {
 }
 
 pub async fn handle_health(_req: Request<State>) -> tide::Result {
-    let check = HealthCheckResponse {
-        status: HealthCheckStatus::Pass,
-    };
-    Ok(Response::builder(StatusCode::Ok)
-        .body(Body::from_json(&check)?)
-        .build())
+    let check = HealthCheckResponse { status: HealthCheckStatus::Pass };
+    Ok(Response::builder(StatusCode::Ok).body(Body::from_json(&check)?).build())
 }

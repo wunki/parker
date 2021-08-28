@@ -11,10 +11,9 @@ path = "src/main.rs"
 name = "parker"
 
 [dependencies]
-tide = "0.16.0"
 serde = { version = "1.0", features = ["derive"] }
-async-std = { version = "1.8.0", features = ["attributes"] }
 config = "0.11.0"
+axum = "0.1.3"
 
 [dependencies.sqlx]
 version = "0.5"
