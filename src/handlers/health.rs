@@ -1,6 +1,4 @@
-use tide::{Body, Request, Response, StatusCode};
-
-use crate::State;
+use axum::{http::StatusCode, response::IntoResponse, response::Json};
 
 #[derive(serde::Serialize)]
 pub struct HealthCheckResponse {
@@ -13,7 +11,10 @@ pub enum HealthCheckStatus {
     Pass,
 }
 
-pub async fn handle_health(_req: Request<State>) -> tide::Result {
-    let check = HealthCheckResponse { status: HealthCheckStatus::Pass };
-    Ok(Response::builder(StatusCode::Ok).body(Body::from_json(&check)?).build())
+pub async fn handle_health() -> impl IntoResponse {
+    let check = HealthCheckResponse {
+        status: HealthCheckStatus::Pass,
+    };
+
+    (StatusCode::OK, Json(check))
 }

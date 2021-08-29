@@ -1,12 +1,25 @@
-use parker::settings::Settings;
+use std::net::SocketAddr;
 
-#[async_std::main]
-async fn main() -> tide::Result<()> {
-    tide::log::start();
+use axum::{handler::get, Router};
+use parker::{handlers::handle_welcome, settings::Settings};
 
-    let settings = Settings::new()?;
+#[tokio::main]
+async fn main() {
+    // Set the RUST_LOG, if it hasn't been explicitly defined
+    if std::env::var("RUST_LOG").is_err() {
+        std::env::set_var("RUST_LOG", "parker=debug")
+    }
+    tracing_subscriber::fmt::init();
 
-    let app = parker::app(&settings);
-    app.await.listen(format!("127.0.0.1:{}", settings.port)).await?;
-    Ok(())
+    let settings = Settings::new().unwrap();
+
+    let app = Router::new().route("/", get(handle_welcome));
+
+    let addr = SocketAddr::from(([127, 0, 0, 1], settings.port));
+    tracing::debug!("listening on http://{}", addr);
+
+    axum::Server::bind(&addr)
+        .serve(app.into_make_service())
+        .await
+        .unwrap();
 }
