@@ -1,10 +1,6 @@
 use std::net::SocketAddr;
 
-use axum::{handler::get, Router};
-use parker::{
-    handlers::{handle_health, handle_welcome},
-    settings::Settings,
-};
+use parker::{app, settings::Settings};
 
 #[tokio::main]
 async fn main() {
@@ -15,10 +11,7 @@ async fn main() {
     tracing_subscriber::fmt::init();
 
     let settings = Settings::new().unwrap();
-
-    let app = Router::new()
-        .route("/", get(handle_welcome))
-        .route("/health", get(handle_health));
+    let app = app();
 
     let addr = SocketAddr::from(([127, 0, 0, 1], settings.port));
     tracing::debug!("listening on http://{}", addr);
