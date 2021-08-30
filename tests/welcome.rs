@@ -1,11 +1,18 @@
-use tide_testing::TideTestingExt;
+use axum::{
+    body::Body,
+    http::{Request, StatusCode},
+};
 
-use parker::settings::Settings;
+use tower::ServiceExt;
 
-#[async_std::test]
+use parker::app;
+
+#[tokio::test]
 async fn welcome_returns_200_ok() {
-    let settings = Settings::new().unwrap();
-    let app = parker::app(&settings).await;
-    let response = app.get("/").await.unwrap();
-    assert_eq!(response.status(), tide::StatusCode::Ok);
+    let app = app();
+    let response = app
+        .oneshot(Request::builder().uri("/").body(Body::empty()).unwrap())
+        .await
+        .unwrap();
+    assert_eq!(response.status(), StatusCode::OK);
 }

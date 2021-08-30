@@ -815,6 +815,7 @@ dependencies = [
  "sqlx",
  "tokio",
  "tokio-postgres",
+ "tower",
  "tracing",
  "tracing-subscriber",
 ]

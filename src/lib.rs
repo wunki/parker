@@ -17,6 +17,7 @@ pub async fn make_db_pool(db_url: &str) -> PgPool {
         .expect("could not create database pool")
 }
 
+/// Returns the application containing all routes.
 pub fn app() -> Router<BoxRoute> {
     let app = Router::new()
         .route("/", get(handle_welcome))
