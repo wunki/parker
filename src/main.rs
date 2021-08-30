@@ -6,7 +6,7 @@ use parker::{app, settings::Settings};
 async fn main() {
     // Set the RUST_LOG, if it hasn't been explicitly defined
     if std::env::var("RUST_LOG").is_err() {
-        std::env::set_var("RUST_LOG", "parker=debug")
+        std::env::set_var("RUST_LOG", "parker=debug,tower_http=debug")
     }
     tracing_subscriber::fmt::init();
 

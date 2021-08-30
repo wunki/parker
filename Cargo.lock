@@ -816,6 +816,7 @@ dependencies = [
  "tokio",
  "tokio-postgres",
  "tower",
+ "tower-http",
  "tracing",
  "tracing-subscriber",
 ]
@@ -1580,6 +1581,7 @@ dependencies = [
  "pin-project",
  "tower-layer",
  "tower-service",
+ "tracing",
 ]
 
 [[package]]
